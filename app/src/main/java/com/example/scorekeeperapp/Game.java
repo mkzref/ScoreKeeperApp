@@ -25,16 +25,19 @@ import java.util.Locale;
 
 Author @ Marwa hatamleh
  */
-public class game extends AppCompatActivity {
+public class Game extends AppCompatActivity {
     static final long START_TIMER_MILLIS = 60000;
-    int teamScoreA = 0;
-    int teamScoreB = 0;
+    int teamScoreA ;
+    int teamScoreB ;
     String scoreA = "     ";
     String scoreB = "     ";
     long TimenMillis = START_TIMER_MILLIS;
-    TextView ScoreTeamone, ScoreTeamtwo, Counter;
+    TextView ScoreTeamone;
+    TextView ScoreTeamtwo;
+    TextView Counter;
     Button Reset;
-    EditText editteamone, editeamtwo;
+    EditText editteamone;
+    EditText editeamtwo;
     CountDownTimer CountTimer;
     AlertDialog.Builder builder;
     boolean TimerRun;
@@ -52,23 +55,15 @@ public class game extends AppCompatActivity {
         editeamtwo = findViewById(R.id.scoresteamgermany);
         builder = new AlertDialog.Builder(this);
         Reset = findViewById(R.id.reset);
-
         editteamone.setVerticalScrollBarEnabled(true);
         editteamone.setMovementMethod(new ScrollingMovementMethod());
         editteamone.setKeyListener(null);
         editeamtwo.setVerticalScrollBarEnabled(true);
         editeamtwo.setMovementMethod(new ScrollingMovementMethod());
         editeamtwo.setKeyListener(null);
-
-
-
-
         startTimer();
-
         String date = new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault()).format(new Date());
         Date.setText(date);
-
-
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,20 +72,18 @@ public class game extends AppCompatActivity {
         });
     }
 
-
     private void startTimer() {
         CountTimer = new CountDownTimer(TimenMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 TimenMillis = millisUntilFinished;
                 updateCountDown();
-
             }
 
             @Override
             public void onFinish() {
                 TimerRun = false;
-                MediaPlayer ring = MediaPlayer.create(game.this, R.raw.buzzer);
+                MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.buzzer);
                 ring.start();
                 scoreObserver();
             }
@@ -124,7 +117,7 @@ public class game extends AppCompatActivity {
 
 
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this, R.style.MyDialogStyle);
-        builder1.setTitle("Congratulations" + " " + s + " won." + " " + "The score is " + i).
+        builder1.setTitle("Congratulations" + " " + s + " Won." + " " + "The score is " + i).
                 setIcon(R.drawable.ic_baseline_sports_soccer_24);
         builder1.setCancelable(true);
         builder1.setPositiveButton(
@@ -139,7 +132,7 @@ public class game extends AppCompatActivity {
                 "Play Again!",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        startActivity(new Intent(game.this, MainActivity.class));
+                        startActivity(new Intent(Game.this, MainActivity.class));
                         resetTimer();
                     }
                 });
@@ -165,7 +158,7 @@ public class game extends AppCompatActivity {
     }
 
     public void Goalteamone(View view) {
-        MediaPlayer ring = MediaPlayer.create(game.this, R.raw.crowd);
+        MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.crowd);
         ring.start();
         teamScoreA += 3;
         ScoreTeamone.setText(teamScoreA + " ");
@@ -175,7 +168,7 @@ public class game extends AppCompatActivity {
     }
 
     public void Goalteamtwo(View view) {
-        MediaPlayer ring = MediaPlayer.create(game.this, R.raw.crowd);
+        MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.crowd);
         ring.start();
         teamScoreB += 3;
         ScoreTeamtwo.setText(teamScoreB + " ");
@@ -185,7 +178,7 @@ public class game extends AppCompatActivity {
     }
 
     public void yallowcone(View view) {
-        MediaPlayer ring = MediaPlayer.create(game.this, R.raw.referee);
+        MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.referee);
         ring.start();
         scoreA += "Yallow Card" + "    ";
         editteamone.setText(scoreA);
@@ -193,7 +186,7 @@ public class game extends AppCompatActivity {
     }
 
     public void yallowctwo(View view) {
-        MediaPlayer ring = MediaPlayer.create(game.this, R.raw.referee);
+        MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.referee);
         ring.start();
         scoreB += "Yallow Card" + "    ";
         editeamtwo.setText(scoreB);
@@ -202,7 +195,7 @@ public class game extends AppCompatActivity {
     }
 
     public void redcone(View view) {
-        MediaPlayer ring = MediaPlayer.create(game.this, R.raw.referee);
+        MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.referee);
         ring.start();
         scoreA += "Red Card" + "   ";
         editteamone.setText(scoreA);
@@ -210,7 +203,7 @@ public class game extends AppCompatActivity {
     }
 
     public void redctwo(View view) {
-        MediaPlayer ring = MediaPlayer.create(game.this, R.raw.referee);
+        MediaPlayer ring = MediaPlayer.create(Game.this, R.raw.referee);
         ring.start();
         scoreB += "Red Card" + "   ";
         editeamtwo.setText(scoreB);

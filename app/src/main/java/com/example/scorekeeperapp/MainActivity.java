@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Text = findViewById(R.id.splashTimer);
         Text.setText("");
 
-        final long period = 60;
+        final long p= 60;
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -52,17 +52,17 @@ public class MainActivity extends AppCompatActivity {
 
                     timer.cancel();
 
-                    Intent intent = new Intent(MainActivity.this, game.class);
+                    Intent intent = new Intent(MainActivity.this, Game.class);
                     finish();
 
                 }
             }
-        }, 0, period);
+        }, 0, p);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, game.class);
+                Intent intent = new Intent(MainActivity.this, Game.class);
                 startActivity(intent);
                 finish();
             }

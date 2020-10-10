@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundsplash"
-    tools:context=".game">
+    tools:context=".Game">
 
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -251,10 +253,11 @@
         android:layout_height="166dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progress"
         app:layout_constraintVertical_bias="0.181"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-3dp">
+        tools:ignore="MissingConstraints">
 
 
         <LinearLayout
@@ -274,11 +277,11 @@
                 android:layout_margin="5dp"
                 android:background="@color/backbutton"
                 android:fontFamily="monospace"
+                android:onClick="Goalteamone"
                 android:text="GOAL"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:onClick="Goalteamone"/>
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/yaalowcardone"
@@ -287,8 +290,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
                 android:background="@color/backbutton"
-                android:onClick="yallowcone"
                 android:fontFamily="monospace"
+                android:onClick="yallowcone"
                 android:text="Yallow card"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
@@ -300,9 +303,9 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="5dp"
-                android:onClick="redcone"
                 android:background="@color/backbutton"
                 android:fontFamily="monospace"
+                android:onClick="redcone"
                 android:text="Red Card"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
@@ -327,9 +330,9 @@
                 android:id="@+id/goalgermany"
                 android:layout_width="140dp"
                 android:layout_height="40dp"
-                android:onClick="Goalteamtwo"
                 android:layout_margin="5dp"
                 android:background="@color/backbutton"
+                android:onClick="Goalteamtwo"
                 android:text="GOAL"
                 android:textColor="#fff"
 
@@ -389,17 +392,17 @@
         android:layout_height="62dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:overScrollMode="always"
-        android:textColor="#fff"
         android:focusable="false"
         android:inputType="textMultiLine"
+        android:overScrollMode="always"
         android:scrollbarStyle="insideInset"
         android:scrollbars="vertical"
-        android:singleLine="false"
         android:scrollHorizontally="false"
+        android:singleLine="false"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@+id/progress"
         app:layout_constraintEnd_toStartOf="@+id/timer"
-        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textteamone"
         app:layout_constraintVertical_bias="0.0" />
@@ -409,17 +412,18 @@
         android:layout_width="94dp"
         android:layout_height="62dp"
         android:ems="10"
-        android:textColor="#fff"
+        android:focusable="false"
         android:inputType="textMultiLine"
         android:overScrollMode="always"
         android:scrollbarStyle="insideInset"
         android:scrollbars="vertical"
         android:singleLine="false"
-        android:focusable="false"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="@+id/progress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toEndOf="@+id/timer"
-        app:layout_constraintTop_toBottomOf="@+id/textteamtwo" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textteamtwo"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
