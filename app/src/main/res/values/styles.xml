@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/backgroundsplash</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+    </style>
+    <style name="MyDialogStyle" parent="ThemeOverlay.AppCompat.Dialog.Alert" >
+        <item name="android:buttonBarButtonStyle">@color/backbutton</item>
+        <item name="android:colorBackground">@color/backgroundsplash</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textSize">22sp</item>
+
+
+    </style>
+
+</resources>
