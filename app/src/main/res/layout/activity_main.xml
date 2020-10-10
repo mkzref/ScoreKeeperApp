@@ -54,7 +54,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-light"
         android:text="Timer"
-        android:textColor="@android:color/white"
+        android:textColor="@color/text"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,6 @@
         app:layout_constraintVertical_bias="0.385" />
 
     <TextView
-        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="27sp"
@@ -73,9 +72,7 @@
         android:layout_marginTop="8dp"
         android:textStyle="bold"
         android:text=" Welcome to Score! Hero"
-
-        android:textColor="@android:color/white"
-
+        android:textColor="@color/text"
         android:fontFamily="sans-serif-condensed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

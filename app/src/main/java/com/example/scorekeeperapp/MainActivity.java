@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent splashIntent = new Intent(MainActivity.this, game.class);
-                startActivity(splashIntent);
+                Intent intent = new Intent(MainActivity.this, game.class);
+                startActivity(intent);
                 finish();
             }
         }, SPLASH_TIME_OUT);

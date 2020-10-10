@@ -31,7 +31,7 @@ public class game extends AppCompatActivity {
     int teamScoreB = 0;
     String scoreA = "     ";
     String scoreB = "     ";
-    long mTimeLeftInMillis = START_TIMER_MILLIS;
+    long TimenMillis = START_TIMER_MILLIS;
     TextView ScoreTeamone, ScoreTeamtwo, Counter;
     Button Reset;
     EditText editteamone, editeamtwo;
@@ -61,12 +61,7 @@ public class game extends AppCompatActivity {
         editeamtwo.setKeyListener(null);
 
 
-        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
-        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
 
-        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
-
-        Counter.setText(timeLeftFormatted);
 
         startTimer();
 
@@ -84,10 +79,10 @@ public class game extends AppCompatActivity {
 
 
     private void startTimer() {
-        CountTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+        CountTimer = new CountDownTimer(TimenMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                mTimeLeftInMillis = millisUntilFinished;
+                TimenMillis = millisUntilFinished;
                 updateCountDown();
 
             }
@@ -105,8 +100,8 @@ public class game extends AppCompatActivity {
     }
 
     private void updateCountDown() {
-        int min = (int) (mTimeLeftInMillis / 1000) / 60;
-        int sec = (int) (mTimeLeftInMillis / 1000) % 60;
+        int min = (int) (TimenMillis / 1000) / 60;
+        int sec = (int) (TimenMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", min, sec);
         Counter.setText(timeLeftFormatted);
     }
@@ -156,7 +151,7 @@ public class game extends AppCompatActivity {
 
 
     private void resetTimer() {
-        mTimeLeftInMillis = START_TIMER_MILLIS;
+        TimenMillis = START_TIMER_MILLIS;
         CountTimer.cancel();
         teamScoreA = 0;
         teamScoreB = 0;
@@ -217,7 +212,6 @@ public class game extends AppCompatActivity {
     public void redctwo(View view) {
         MediaPlayer ring = MediaPlayer.create(game.this, R.raw.referee);
         ring.start();
-
         scoreB += "Red Card" + "   ";
         editeamtwo.setText(scoreB);
         Toast.makeText(getApplicationContext(), "GET OUT !!!", Toast.LENGTH_SHORT).show();
